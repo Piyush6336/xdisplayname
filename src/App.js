@@ -13,16 +13,16 @@ function App() {
   return (
     <div>
       <h1>Full Name Display</h1>
-      <form>
+      <form onSubmit={(e)=>{
+          e.preventDefault();
+          setFullName(`${firstname} ${lastName}`)
+        }}>
         <label>First Name:</label>
         <input type="text" value={firstname} required onChange={first}/><br/>
         <label>Last Name:</label>
         <input type="text" value={lastName} required onChange={last}/><br/>
         {/* <input type="submit" value="Submit"/> */}
-        <button onClick={(e)=>{
-          e.preventDefault();
-          setFullName(`${firstname} ${lastName}`)
-        }}>Submit</button>
+        <button >Submit</button>
       </form>
       {fullName && <p>Full Name: {fullName}</p>}
     </div>
